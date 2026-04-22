@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.tabMedicos = new System.Windows.Forms.TabControl();
             this.tabEspecialidad = new System.Windows.Forms.TabPage();
             this.btnActualizarEsp = new System.Windows.Forms.Button();
@@ -353,6 +354,7 @@
             this.ClientSize = new System.Drawing.Size(783, 480);
             this.Controls.Add(this.tabMedicos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
