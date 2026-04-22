@@ -111,7 +111,7 @@
             this.dgvEspecialidades.AllowUserToAddRows = false;
             this.dgvEspecialidades.AllowUserToDeleteRows = false;
             this.dgvEspecialidades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEspecialidades.Location = new System.Drawing.Point(10, 110);
+            this.dgvEspecialidades.Location = new System.Drawing.Point(7, 110);
             this.dgvEspecialidades.Name = "dgvEspecialidades";
             this.dgvEspecialidades.ReadOnly = true;
             this.dgvEspecialidades.RowHeadersWidth = 51;
@@ -208,11 +208,11 @@
             this.dgvMedicos.AllowUserToAddRows = false;
             this.dgvMedicos.AllowUserToDeleteRows = false;
             this.dgvMedicos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMedicos.Location = new System.Drawing.Point(10, 170);
+            this.dgvMedicos.Location = new System.Drawing.Point(3, 170);
             this.dgvMedicos.Name = "dgvMedicos";
             this.dgvMedicos.ReadOnly = true;
             this.dgvMedicos.RowHeadersWidth = 51;
-            this.dgvMedicos.Size = new System.Drawing.Size(760, 240);
+            this.dgvMedicos.Size = new System.Drawing.Size(764, 240);
             this.dgvMedicos.TabIndex = 10;
             // 
             // btnLimpiarMed
@@ -320,11 +320,11 @@
             this.dgvConsulta.AllowUserToAddRows = false;
             this.dgvConsulta.AllowUserToDeleteRows = false;
             this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Location = new System.Drawing.Point(10, 50);
+            this.dgvConsulta.Location = new System.Drawing.Point(8, 50);
             this.dgvConsulta.Name = "dgvConsulta";
             this.dgvConsulta.ReadOnly = true;
             this.dgvConsulta.RowHeadersWidth = 51;
-            this.dgvConsulta.Size = new System.Drawing.Size(760, 360);
+            this.dgvConsulta.Size = new System.Drawing.Size(759, 360);
             this.dgvConsulta.TabIndex = 2;
             // 
             // cmbEspecialidadConsulta
@@ -352,7 +352,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(783, 480);
             this.Controls.Add(this.tabMedicos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de Médicos y Especialidades";
