@@ -23,10 +23,10 @@ namespace prySampaolesiSP1
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             ConfigurarDataGridViews();
-            ActualizarComboBoxEspecialidades(cmbEspecialidadMed);
-            ActualizarComboBoxEspecialidades(cmbEspecialidadConsulta);
             CargarEspecialidades(dgvEspecialidades);
             CargarMedicos(dgvMedicos);
+            ActualizarComboBoxEspecialidades(cmbEspecialidadMed);
+            ActualizarComboBoxEspecialidades(cmbEspecialidadConsulta);
         }
 
         private void ConfigurarDataGridViews()
@@ -229,6 +229,11 @@ namespace prySampaolesiSP1
             cmb.DataSource = gestor.ObtenerEspecialidades();
             cmb.DisplayMember = "Nombre";
             cmb.ValueMember = "IdEspecialidad";
+        }
+
+        private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            gestor.Desconectar();
         }
     }
 }
