@@ -30,8 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.tabMedicos = new System.Windows.Forms.TabControl();
+            this.tabConsulta = new System.Windows.Forms.TabPage();
+            this.dgvConsulta = new System.Windows.Forms.DataGridView();
+            this.cmbEspecialidadConsulta = new System.Windows.Forms.ComboBox();
+            this.lblSelEsp = new System.Windows.Forms.Label();
             this.tabEspecialidad = new System.Windows.Forms.TabPage();
-            this.btnActualizarEsp = new System.Windows.Forms.Button();
             this.dgvEspecialidades = new System.Windows.Forms.DataGridView();
             this.btnLimpiarEsp = new System.Windows.Forms.Button();
             this.btnGuardarEsp = new System.Windows.Forms.Button();
@@ -40,7 +43,6 @@
             this.txtIdEsp = new System.Windows.Forms.TextBox();
             this.lblIdEsp = new System.Windows.Forms.Label();
             this.tabMedico = new System.Windows.Forms.TabPage();
-            this.btnActualizarMed = new System.Windows.Forms.Button();
             this.dgvMedicos = new System.Windows.Forms.DataGridView();
             this.btnLimpiarMed = new System.Windows.Forms.Button();
             this.btnGuardarMed = new System.Windows.Forms.Button();
@@ -52,17 +54,13 @@
             this.lblNombreMed = new System.Windows.Forms.Label();
             this.txtMatricula = new System.Windows.Forms.TextBox();
             this.lblMatricula = new System.Windows.Forms.Label();
-            this.tabConsulta = new System.Windows.Forms.TabPage();
-            this.dgvConsulta = new System.Windows.Forms.DataGridView();
-            this.cmbEspecialidadConsulta = new System.Windows.Forms.ComboBox();
-            this.lblSelEsp = new System.Windows.Forms.Label();
             this.tabMedicos.SuspendLayout();
+            this.tabConsulta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.tabEspecialidad.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).BeginInit();
             this.tabMedico.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).BeginInit();
-            this.tabConsulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).BeginInit();
             this.SuspendLayout();
             // 
             // tabMedicos
@@ -78,9 +76,53 @@
             this.tabMedicos.Size = new System.Drawing.Size(783, 480);
             this.tabMedicos.TabIndex = 0;
             // 
+            // tabConsulta
+            // 
+            this.tabConsulta.Controls.Add(this.dgvConsulta);
+            this.tabConsulta.Controls.Add(this.cmbEspecialidadConsulta);
+            this.tabConsulta.Controls.Add(this.lblSelEsp);
+            this.tabConsulta.Location = new System.Drawing.Point(4, 25);
+            this.tabConsulta.Margin = new System.Windows.Forms.Padding(4);
+            this.tabConsulta.Name = "tabConsulta";
+            this.tabConsulta.Padding = new System.Windows.Forms.Padding(4);
+            this.tabConsulta.Size = new System.Drawing.Size(775, 451);
+            this.tabConsulta.TabIndex = 2;
+            this.tabConsulta.Text = "Consulta";
+            this.tabConsulta.UseVisualStyleBackColor = true;
+            // 
+            // dgvConsulta
+            // 
+            this.dgvConsulta.AllowUserToAddRows = false;
+            this.dgvConsulta.AllowUserToDeleteRows = false;
+            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConsulta.Location = new System.Drawing.Point(8, 50);
+            this.dgvConsulta.Name = "dgvConsulta";
+            this.dgvConsulta.ReadOnly = true;
+            this.dgvConsulta.RowHeadersWidth = 51;
+            this.dgvConsulta.Size = new System.Drawing.Size(759, 360);
+            this.dgvConsulta.TabIndex = 2;
+            // 
+            // cmbEspecialidadConsulta
+            // 
+            this.cmbEspecialidadConsulta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEspecialidadConsulta.FormattingEnabled = true;
+            this.cmbEspecialidadConsulta.Location = new System.Drawing.Point(177, 7);
+            this.cmbEspecialidadConsulta.Name = "cmbEspecialidadConsulta";
+            this.cmbEspecialidadConsulta.Size = new System.Drawing.Size(200, 24);
+            this.cmbEspecialidadConsulta.TabIndex = 1;
+            this.cmbEspecialidadConsulta.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidadConsulta_SelectedIndexChanged);
+            // 
+            // lblSelEsp
+            // 
+            this.lblSelEsp.AutoSize = true;
+            this.lblSelEsp.Location = new System.Drawing.Point(10, 10);
+            this.lblSelEsp.Name = "lblSelEsp";
+            this.lblSelEsp.Size = new System.Drawing.Size(161, 16);
+            this.lblSelEsp.TabIndex = 0;
+            this.lblSelEsp.Text = "Seleccione Especialidad:";
+            // 
             // tabEspecialidad
             // 
-            this.tabEspecialidad.Controls.Add(this.btnActualizarEsp);
             this.tabEspecialidad.Controls.Add(this.dgvEspecialidades);
             this.tabEspecialidad.Controls.Add(this.btnLimpiarEsp);
             this.tabEspecialidad.Controls.Add(this.btnGuardarEsp);
@@ -96,16 +138,6 @@
             this.tabEspecialidad.TabIndex = 0;
             this.tabEspecialidad.Text = "Especialidades";
             this.tabEspecialidad.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarEsp
-            // 
-            this.btnActualizarEsp.Location = new System.Drawing.Point(10, 420);
-            this.btnActualizarEsp.Name = "btnActualizarEsp";
-            this.btnActualizarEsp.Size = new System.Drawing.Size(100, 25);
-            this.btnActualizarEsp.TabIndex = 7;
-            this.btnActualizarEsp.Text = "Actualizar Lista";
-            this.btnActualizarEsp.UseVisualStyleBackColor = true;
-            this.btnActualizarEsp.Click += new System.EventHandler(this.btnActualizarEsp_Click);
             // 
             // dgvEspecialidades
             // 
@@ -173,7 +205,6 @@
             // 
             // tabMedico
             // 
-            this.tabMedico.Controls.Add(this.btnActualizarMed);
             this.tabMedico.Controls.Add(this.dgvMedicos);
             this.tabMedico.Controls.Add(this.btnLimpiarMed);
             this.tabMedico.Controls.Add(this.btnGuardarMed);
@@ -193,16 +224,6 @@
             this.tabMedico.TabIndex = 1;
             this.tabMedico.Text = "Médicos";
             this.tabMedico.UseVisualStyleBackColor = true;
-            // 
-            // btnActualizarMed
-            // 
-            this.btnActualizarMed.Location = new System.Drawing.Point(10, 420);
-            this.btnActualizarMed.Name = "btnActualizarMed";
-            this.btnActualizarMed.Size = new System.Drawing.Size(100, 25);
-            this.btnActualizarMed.TabIndex = 11;
-            this.btnActualizarMed.Text = "Actualizar Lista";
-            this.btnActualizarMed.UseVisualStyleBackColor = true;
-            this.btnActualizarMed.Click += new System.EventHandler(this.btnActualizarMed_Click);
             // 
             // dgvMedicos
             // 
@@ -302,51 +323,6 @@
             this.lblMatricula.TabIndex = 0;
             this.lblMatricula.Text = "Matrícula:";
             // 
-            // tabConsulta
-            // 
-            this.tabConsulta.Controls.Add(this.dgvConsulta);
-            this.tabConsulta.Controls.Add(this.cmbEspecialidadConsulta);
-            this.tabConsulta.Controls.Add(this.lblSelEsp);
-            this.tabConsulta.Location = new System.Drawing.Point(4, 25);
-            this.tabConsulta.Margin = new System.Windows.Forms.Padding(4);
-            this.tabConsulta.Name = "tabConsulta";
-            this.tabConsulta.Padding = new System.Windows.Forms.Padding(4);
-            this.tabConsulta.Size = new System.Drawing.Size(775, 451);
-            this.tabConsulta.TabIndex = 2;
-            this.tabConsulta.Text = "Consulta";
-            this.tabConsulta.UseVisualStyleBackColor = true;
-            // 
-            // dgvConsulta
-            // 
-            this.dgvConsulta.AllowUserToAddRows = false;
-            this.dgvConsulta.AllowUserToDeleteRows = false;
-            this.dgvConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConsulta.Location = new System.Drawing.Point(8, 50);
-            this.dgvConsulta.Name = "dgvConsulta";
-            this.dgvConsulta.ReadOnly = true;
-            this.dgvConsulta.RowHeadersWidth = 51;
-            this.dgvConsulta.Size = new System.Drawing.Size(759, 360);
-            this.dgvConsulta.TabIndex = 2;
-            // 
-            // cmbEspecialidadConsulta
-            // 
-            this.cmbEspecialidadConsulta.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEspecialidadConsulta.FormattingEnabled = true;
-            this.cmbEspecialidadConsulta.Location = new System.Drawing.Point(177, 7);
-            this.cmbEspecialidadConsulta.Name = "cmbEspecialidadConsulta";
-            this.cmbEspecialidadConsulta.Size = new System.Drawing.Size(200, 24);
-            this.cmbEspecialidadConsulta.TabIndex = 1;
-            this.cmbEspecialidadConsulta.SelectedIndexChanged += new System.EventHandler(this.cmbEspecialidadConsulta_SelectedIndexChanged);
-            // 
-            // lblSelEsp
-            // 
-            this.lblSelEsp.AutoSize = true;
-            this.lblSelEsp.Location = new System.Drawing.Point(10, 10);
-            this.lblSelEsp.Name = "lblSelEsp";
-            this.lblSelEsp.Size = new System.Drawing.Size(161, 16);
-            this.lblSelEsp.TabIndex = 0;
-            this.lblSelEsp.Text = "Seleccione Especialidad:";
-            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -363,15 +339,15 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.tabMedicos.ResumeLayout(false);
+            this.tabConsulta.ResumeLayout(false);
+            this.tabConsulta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.tabEspecialidad.ResumeLayout(false);
             this.tabEspecialidad.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEspecialidades)).EndInit();
             this.tabMedico.ResumeLayout(false);
             this.tabMedico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMedicos)).EndInit();
-            this.tabConsulta.ResumeLayout(false);
-            this.tabConsulta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvConsulta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,7 +365,6 @@
         private System.Windows.Forms.Button btnGuardarEsp;
         private System.Windows.Forms.Button btnLimpiarEsp;
         private System.Windows.Forms.DataGridView dgvEspecialidades;
-        private System.Windows.Forms.Button btnActualizarEsp;
         private System.Windows.Forms.Label lblMatricula;
         private System.Windows.Forms.TextBox txtMatricula;
         private System.Windows.Forms.Label lblNombreMed;
@@ -401,7 +376,6 @@
         private System.Windows.Forms.Button btnGuardarMed;
         private System.Windows.Forms.Button btnLimpiarMed;
         private System.Windows.Forms.DataGridView dgvMedicos;
-        private System.Windows.Forms.Button btnActualizarMed;
         private System.Windows.Forms.Label lblSelEsp;
         private System.Windows.Forms.ComboBox cmbEspecialidadConsulta;
         private System.Windows.Forms.DataGridView dgvConsulta;
