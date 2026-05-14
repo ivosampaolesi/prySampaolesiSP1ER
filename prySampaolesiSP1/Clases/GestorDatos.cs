@@ -1,8 +1,9 @@
+using prySampaolesiClaseBD;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
-using prySampaolesiClaseBD;
 
 namespace prySampaolesiSP1
 {
@@ -14,7 +15,7 @@ namespace prySampaolesiSP1
 
         public GestorDatos()
         {
-            string rutaBD = @"C:\Users\ivosa\source\repos\prySampaolesiSP1EPR\prySampaolesiSP1\BD\ClinicaBD.accdb";
+            string rutaBD = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "BD", "ClinicaBD.accdb"); 
             conexion = new clsConexion(rutaBD);
             especialidades = new List<Especialidad>();
             medicos = new List<ClaseMedico>();
